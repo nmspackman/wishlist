@@ -1,0 +1,47 @@
+/*
+color scheme: (light to dark)
+#F7FFF6, #BCEBCB, #87D68D, #93B48B, #8491A3
+*/
+
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #F7FFF6;
+}
+
+a {
+  color: #00B7FF;
+}
+
+#comments {
+  margin-top: 20px;
+}
+
+.btn-primary {
+  color: #000;
+  background-color: #BCEBCB;
+  border-color: #87D68D;
+}
+
+.btn-primary:hover {
+  color: #000;
+  background-color: #93B48B;
+  border-color: #93B48B;
+}
+
+.btn-primary:active:focus {
+  color: #000;
+  background-color: #93B48B;
+  border-color: #93B48B;
+}
+
+.btn-primary:focus {
+  color: #000;
+  background-color: #93B48B;
+  border-color: #93B48B;
+}
+
+.list-group-item {
+  background-color: #BCEBCB;
+  border: 1px solid #bbb;
+}
