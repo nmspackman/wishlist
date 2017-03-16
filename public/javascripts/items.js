@@ -9,12 +9,16 @@ $(document).ready(function(){
    $("#getItems").click(function() {
     $.getJSON('item', function(data) {
       console.log(data);
-      var everything = "<ul>";
+      var everything = "<div class='row'>";
       for(var item in data) {
         itemObj = data[item];
-        everything += "<li class='list-group-item'> Item: " + itemObj.Item + " -- Link: " + itemObj.Link + " --Image: " + itemObj.Image + "</li>";
+        everything += "<div class='col-sm-6 col-md-4'><div class='thumbnail'>"
+                   +    "<img src='" + itemObj.Image + "' alt='" + itemObj.Item  + "'>"
+                   +    "<div class='caption'><h3>" + itemObj.Item + "</h3>"
+                   +    "<p><a href='" + itemObj.Link + "' class='btn btn-primary' role='button' target='_blank'>Open in New Window</a></p></div>"
+                   +  "</div></div>";
       }
-      everything += "</ul>";
+      everything += "</div>";
       $("#items").html(everything);
     })
   });

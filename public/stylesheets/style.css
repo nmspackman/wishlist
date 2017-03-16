@@ -49,3 +49,7 @@ ul {
   background-color: #BCEBCB;
   border: 1px solid #bbb;
 }
+
+.thumbnail img {
+  max-height:200px;
+}
