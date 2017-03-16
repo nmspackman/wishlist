@@ -58,8 +58,14 @@ function runItem(jobj) {
 
 function loadComments(id) {
   currentItem = id;
+
+  $('#commentList').empty();
+
   $.get('comments/'+currentItem, function(data) {
-    console.log(data);
+    $.each(data, function(index, value) {
+      $('#commentList').append($('<dt/>', {text: value.Name}));
+      $('#commentList').append($('<dd/>', {text: value.Text}));
+    });
   });
 }
 
@@ -68,6 +74,7 @@ function postComment() {
   $.post('comment', comment, function(data) {
     $("#doneComment-message").html('Comment posted!');
     $('#doneComment').slideDown('fast');
+    loadComments(currentItem);
   });
   $("#nameInput").val('');
   $("#commentInput").val('');
