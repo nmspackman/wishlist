@@ -13,8 +13,12 @@ a {
   color: #00B7FF;
 }
 
-#comments {
+#items {
   margin-top: 20px;
+}
+
+ul {
+  padding-left: 0px;
 }
 
 .btn-primary {
