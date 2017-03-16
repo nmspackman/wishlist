@@ -12,7 +12,7 @@
 <body>
 <div class="container-fluid">
     <h1>Wishlist App!</h1>
-    <form id="commentForm" action="" class="form-group">
+    <form action="" class="form-group">
     <label for="item">Item Name: </label><input type="text" id="item" class="form-control" placeholder="Item"><br>
     <label for="link">Link: </label><input type="text" id="link" class="form-control" placeholder="Link"><br>
     <label for="image">Image: </label><input type="text" id="image" class="form-control" placeholder="Image"><br>
@@ -29,6 +29,24 @@
         <button id="deleteItems" class="btn btn-primary">Delete Items</button>
     </div>
     <div id="items" class="row"></div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="commentModal" tabindex="-1" role="dialog" aria-labelledby="commentModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="commentModalLabel">Comments</h4>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
 </div>
 </body>
 </html>

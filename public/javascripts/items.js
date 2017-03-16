@@ -17,7 +17,10 @@ $(document).ready(function(){
         everything += "<div class='col-sm-6 col-md-4'><div class='thumbnail'>"
                    +    "<img src='" + itemObj.Image + "' alt='" + itemObj.Item  + "'>"
                    +    "<div class='caption'><h3>" + itemObj.Item + "</h3>"
-                   +    "<p><a href='" + itemObj.Link + "' class='btn btn-primary' role='button' target='_blank'>Open in New Window</a></p></div>"
+                   +    "<p><a href='" + itemObj.Link + "' class='btn btn-primary' role='button' target='_blank'>Open in New Window</a> "
+                   +    "<button data-toggle='modal' data-target='#commentModal' type='button' class='btn' onclick='loadComments(\"" + itemObj._id + "\")'>"
+                   +      "Comments"
+                   +    "</button></p></div>"
                    +  "</div></div>";
       }
       everything += "</div>";
@@ -50,4 +53,8 @@ function runItem(jobj) {
         $('.alert').slideDown('fast')
     }
     });
+}
+
+function loadComments(id) {
+  console.log(id);
 }
