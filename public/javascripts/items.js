@@ -14,12 +14,18 @@ $(document).ready(function(){
    $("#getItems").click(function() {
     $.getJSON('item', function(data) {
       var everything = "<div class='row'>";
+      let linkSection;
       for(var item in data) {
         itemObj = data[item];
+        let link = itemObj.Link;
+        if (!link)
+          linkSection = "<a class='btn btn-danger' role='button'>No Link</a> ";
+        else
+          linkSection = "<a href='" + itemObj.Link + "' class='btn btn-primary' role='button' target='_blank'>Open in New Window</a> ";
         everything += "<div class='col-sm-6 col-md-4'><div class='thumbnail'>"
                    +    "<img src='" + itemObj.Image + "' alt='" + itemObj.Item  + "'>"
                    +    "<div class='caption'><h3>" + itemObj.Item + "</h3>"
-                   +    "<p><a href='" + itemObj.Link + "' class='btn btn-primary' role='button' target='_blank'>Open in New Window</a> "
+                   +    "<p>" + linkSection
                    +    "<button data-toggle='modal' data-target='#commentModal' type='button' class='btn' onclick='loadComments(\"" + itemObj._id + "\")'>"
                    +      "Comments"
                    +    "</button></p></div>"
