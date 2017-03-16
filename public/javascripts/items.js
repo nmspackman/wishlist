@@ -2,13 +2,15 @@ $(document).ready(function(){
   $("#postItem").click(function(){
       var myobj = {Item:$("#item").val(),Link:$("#link").val(),Image:$("#image").val()};
       jobj = JSON.stringify(myobj);
-    //   $("#json").text(jobj);
       runItem(jobj);
+      // Clear out the form for next submission
+      $("#item").val('');
+      $("#link").val('');
+      $("#image").val('');
   });
 
    $("#getItems").click(function() {
     $.getJSON('item', function(data) {
-      console.log(data);
       var everything = "<div class='row'>";
       for(var item in data) {
         itemObj = data[item];
@@ -44,7 +46,8 @@ function runItem(jobj) {
     contentType: "application/json; charset=utf-8",
     success: function(data,textStatus) {
         console.log(textStatus);
-        $("#done").html(textStatus);
+        $("#done-message").html('Saved item: ' + textStatus);
+        $('.alert').slideDown('fast')
     }
     });
 }
