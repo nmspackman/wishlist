@@ -19,7 +19,7 @@
     </form>
 
     <div id="done" class="alert alert-success alert-dismissible" role="alert" style="display: none">
-      <button type="button" class="close" aria-label="Close" onclick="$('.alert').slideUp('fast')"><span aria-hidden="true">&times;</span></button>
+      <button type="button" class="close" aria-label="Close" onclick="$('#done').slideUp('fast')"><span aria-hidden="true">&times;</span></button>
       <strong id="done-message"></strong>
     </div>
 
@@ -39,7 +39,15 @@
             <h4 class="modal-title" id="commentModalLabel">Comments</h4>
           </div>
           <div class="modal-body">
-            ...
+            <div id="doneComment" class="alert alert-success alert-dismissible" role="alert" style="display: none">
+              <button type="button" class="close" aria-label="Close" onclick="$('#doneComment').slideUp('fast')"><span aria-hidden="true">&times;</span></button>
+              <strong id="doneComment-message"></strong>
+            </div>
+
+
+            <label for="nameInput">Name: </label><input type="text" id="nameInput" class="form-control" placeholder="Name"><br>
+            <label for="commentInput">Comment: </label><input type="text" id="commentInput" class="form-control" placeholder="Comment"><br>
+            <button type="button" class="btn btn-primary" onclick="postComment()">Post Comment</button>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

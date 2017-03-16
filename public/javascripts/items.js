@@ -1,3 +1,5 @@
+var currentItem = '';
+
 $(document).ready(function(){
   $("#postItem").click(function(){
       var myobj = {Item:$("#item").val(),Link:$("#link").val(),Image:$("#image").val()};
@@ -48,13 +50,25 @@ function runItem(jobj) {
     data: jobj,
     contentType: "application/json; charset=utf-8",
     success: function(data,textStatus) {
-        console.log(textStatus);
         $("#done-message").html('Saved item: ' + textStatus);
-        $('.alert').slideDown('fast')
+        $('#done').slideDown('fast');
     }
     });
 }
 
 function loadComments(id) {
-  console.log(id);
+  currentItem = id;
+  $.get('comments/'+currentItem, function(data) {
+    console.log(data);
+  });
+}
+
+function postComment() {
+  var comment = {_Item: currentItem, Name: $("#nameInput").val(), Text: $("#commentInput").val()};
+  $.post('comment', comment, function(data) {
+    $("#doneComment-message").html('Comment posted!');
+    $('#doneComment').slideDown('fast');
+  });
+  $("#nameInput").val('');
+  $("#commentInput").val('');
 }
